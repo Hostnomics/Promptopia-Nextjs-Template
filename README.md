@@ -1,3 +1,68 @@
+
+
+- app folder components are server side rendering (19:29)
+    - client side component with `use client`
+
+- server vs client side - (21:21) https://youtu.be/wm5gMKuwSYk?t=1281
+
+
+## Setup Next.js Project: (45th minute)
+
+- Project starts at (45:28) - 
+    - `npx create-next-app@latest ./`
+        - TypeScript - no
+        - ESLint - no
+        - Tailwind CSS - yes
+        - use src directory - no
+        - use app - yes
+        - default alias
+
+    
+## Project dependencies: 
+
+1. bcrypt Mongo DB and Mongoose and Next Auth [(46:00)](https://youtu.be/wm5gMKuwSYk?t=2768)
+    - `npm install bcrypt mongodb mongoose next-auth`
+    - 
+
+
+2. Download assets folder into `public` directory from: https://drive.google.com/file/d/15bGW9HBImu1p3HAYalnaj2Ig_Sn-1c-f/view?pli=1
+
+
+
+## Fix the @ import issue with tailwind
+
+```js
+- wait compiling /_error (client and server)...
+- error ./app/layout.jsx:1:0
+Module not found: Can't resolve '@styles/global.css'
+> 1 | import '@styles/global.css'
+  2 |
+  3 | export const metadata = {
+  4 |     title: "Promptopia",
+
+https://nextjs.org/docs/messages/module-not-found
+
+```
+
+In **jsconfig.json** remove the `/` from `paths`:
+
+`"@/*": ["./*"]` means take it from the root route and take everything. 
+
+```js
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./*"]
+    }
+  }
+}
+
+```
+
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
