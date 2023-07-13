@@ -62,6 +62,52 @@ In **jsconfig.json** remove the `/` from `paths`:
 
 
 
+3. Providers set up Auth in Navbar at (1:10:10): https://youtu.be/wm5gMKuwSYk?t=4212
+
+
+
+- When setting up toggle, don't set toggle state to !toggleDropDown
+
+```js
+    <div className="flex">
+        <Image 
+        src="/assets/images/profile-logo-1.png"
+        width={37}
+        height={37}
+        alt="Profile"
+        className="rounded-full"
+        onClick={() => setToggleDropDown(!toggleDropDown)}
+        />
+    </div>
+```
+
+- **Instead, do this**: 
+
+```js
+//  onClick={() => setToggleDropDown(!toggleDropDown)}
+    onClick={() => setToggleDropDown((prev) => !prev) }
+
+```
+
+
+## Setting up the Provier
+
+4. Build out Provider.jsx [(1:15:59)](https://youtu.be/wm5gMKuwSYk?t=4559)
+
+5. Wrap the layout in <Provider></Provider> tags just inside the body tags in `app/layout.jsx`
+
+    - Layout.jsx imports Provider from `import Provider from '@components/Provider'`
+
+6. (1:18:30) - set up `app/api/auth/[...nextauth]/route.js`
+
+    - 
+
+
+
+---
+---
+
+
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
