@@ -100,7 +100,51 @@ In **jsconfig.json** remove the `/` from `paths`:
 
 6. (1:18:30) - set up `app/api/auth/[...nextauth]/route.js`
 
-    - 
+    - gotto https://console.cloud.google.com/
+    - create new project, name and create. 
+    - API and Services => OAuth consent screen
+    - Click Create (Don't select internal or external)
+    - Fill out info. Domain use: `http://localhost:3000`
+    - **Credentials** => OAuth Client Id (_1:21:59_)
+        - **Application Type** => Web Application
+        - **Authorized JavaScript Origins** => `http://localhost:3000`
+        -  **Authorized Redirect URIs** => `http://localhost:3000`
+        - Select **CREATE** => (_process may take 5 mins or so_)
+        - Copy the **clientId** and **clientSecret** to our **.env** file. 
+            - Then call the **.env** variables to our **route.js** file (app/api/auth/[...nextauth]/route.js)
+
+Import the **.env** file can be imported with `process.env.NAME`
+
+```js
+            clientId: process.env.GOOGLE_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+
+//Test by console logging an object with both (appear in VS Terminal until remove)
+    console.log({
+        clientId: process.env.GOOGLE_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    })
+
+```
+
+7. Set up cloud DB At [(1:28:05)](https://youtu.be/wm5gMKuwSYk?t=5285) set up 
+[MongoDB Atlas DB](https://www.mongodb.com/atlas) at mongodb.com/atlas
+- set up account (Degen@gmail - usual $).
+- set up (free) M0 Cluster
+    - Confirm user and password access to Cluster0
+    - In **Network** add your current IP address
+    - Click **"Add IP Address"** and select **"Anywhere"** which adds `0.0.0.0/0  (includes your current IP address)`
+- **SET UP CONNECTION**
+    - Click **Database**
+    - Click **Connect** 
+    - Click **Drivers** - (`1:29:17`)
+    - Copy your **MongoDB URI**
+    
+
+
+
+
+
 
 
 
