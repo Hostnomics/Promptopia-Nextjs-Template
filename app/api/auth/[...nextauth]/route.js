@@ -3,6 +3,8 @@ import GoogleProvider from 'next-auth/providers/google';
 
 // (1:29:56) - Connect to MongoDB/Atlast Cluster0
 import { connectToDB } from '@utils/database';
+// (1:34:50) import User model we created in Models
+import User from '@models/user';
 
 
 //Test by console logging an object with both:
@@ -20,7 +22,14 @@ const handler = NextAuth({
         })
     ],
     async session({ session }) {
+        const sessionUser = await User.findOne({
+            email: session.user.email
+        })
 
+        //(1:36:47) - session user id
+        session.user.id = sessionUser._id.toString();
+
+        return session;
     },
     async signIn({ profile }) {
     //Built out (1:24:46)
@@ -30,9 +39,19 @@ const handler = NextAuth({
             await connectToDB();
 
             //1. Check if a user already exists:
-
+            const userExists = await User.findOne({
+                email: profile.email
+            })
 
             //2. If not, create a NEW user and save it to the database:
+            // (1:35:45ish)- no spaces username: profile.name.repace(" ", "").toLowerCase(),
+            if(!userExists){
+                await User.create({
+                    email: profile.email,
+                    username: profile.name.repace(" ", "").toLowerCase(),
+                    image: profile.picture
+                })
+            }
 
             return true;
         } catch (error) {

@@ -1,33 +1,28 @@
-
-
 - app folder components are server side rendering (19:29)
-    - client side component with `use client`
+
+  - client side component with `use client`
 
 - server vs client side - (21:21) https://youtu.be/wm5gMKuwSYk?t=1281
 
-
 ## Setup Next.js Project: (45th minute)
 
-- Project starts at (45:28) - 
-    - `npx create-next-app@latest ./`
-        - TypeScript - no
-        - ESLint - no
-        - Tailwind CSS - yes
-        - use src directory - no
-        - use app - yes
-        - default alias
+- Project starts at (45:28) -
+  - `npx create-next-app@latest ./`
+    - TypeScript - no
+    - ESLint - no
+    - Tailwind CSS - yes
+    - use src directory - no
+    - use app - yes
+    - default alias
 
-    
-## Project dependencies: 
+## Project dependencies:
 
 1. bcrypt Mongo DB and Mongoose and Next Auth [(46:00)](https://youtu.be/wm5gMKuwSYk?t=2768)
-    - `npm install bcrypt mongodb mongoose next-auth`
-    - 
 
+   - `npm install bcrypt mongodb mongoose next-auth`
+   -
 
 2. Download assets folder into `public` directory from: https://drive.google.com/file/d/15bGW9HBImu1p3HAYalnaj2Ig_Sn-1c-f/view?pli=1
-
-
 
 ## Fix the @ import issue with tailwind
 
@@ -46,7 +41,7 @@ https://nextjs.org/docs/messages/module-not-found
 
 In **jsconfig.json** remove the `/` from `paths`:
 
-`"@/*": ["./*"]` means take it from the root route and take everything. 
+`"@/*": ["./*"]` means take it from the root route and take everything.
 
 ```js
 {
@@ -59,29 +54,24 @@ In **jsconfig.json** remove the `/` from `paths`:
 
 ```
 
-
-
-
 3. Providers set up Auth in Navbar at (1:10:10): https://youtu.be/wm5gMKuwSYk?t=4212
-
-
 
 - When setting up toggle, don't set toggle state to !toggleDropDown
 
 ```js
-    <div className="flex">
-        <Image 
-        src="/assets/images/profile-logo-1.png"
-        width={37}
-        height={37}
-        alt="Profile"
-        className="rounded-full"
-        onClick={() => setToggleDropDown(!toggleDropDown)}
-        />
-    </div>
+<div className="flex">
+  <Image
+    src="/assets/images/profile-logo-1.png"
+    width={37}
+    height={37}
+    alt="Profile"
+    className="rounded-full"
+    onClick={() => setToggleDropDown(!toggleDropDown)}
+  />
+</div>
 ```
 
-- **Instead, do this**: 
+- **Instead, do this**:
 
 ```js
 //  onClick={() => setToggleDropDown(!toggleDropDown)}
@@ -89,29 +79,28 @@ In **jsconfig.json** remove the `/` from `paths`:
 
 ```
 
-
 ## Setting up the Provier
 
 4. Build out Provider.jsx [(1:15:59)](https://youtu.be/wm5gMKuwSYk?t=4559)
 
 5. Wrap the layout in <Provider></Provider> tags just inside the body tags in `app/layout.jsx`
 
-    - Layout.jsx imports Provider from `import Provider from '@components/Provider'`
+   - Layout.jsx imports Provider from `import Provider from '@components/Provider'`
 
 6. (1:18:30) - set up `app/api/auth/[...nextauth]/route.js`
 
-    - gotto https://console.cloud.google.com/
-    - create new project, name and create. 
-    - API and Services => OAuth consent screen
-    - Click Create (Don't select internal or external)
-    - Fill out info. Domain use: `http://localhost:3000`
-    - **Credentials** => OAuth Client Id (_1:21:59_)
-        - **Application Type** => Web Application
-        - **Authorized JavaScript Origins** => `http://localhost:3000`
-        -  **Authorized Redirect URIs** => `http://localhost:3000`
-        - Select **CREATE** => (_process may take 5 mins or so_)
-        - Copy the **clientId** and **clientSecret** to our **.env** file. 
-            - Then call the **.env** variables to our **route.js** file (app/api/auth/[...nextauth]/route.js)
+   - gotto https://console.cloud.google.com/
+   - create new project, name and create.
+   - API and Services => OAuth consent screen
+   - Click Create (Don't select internal or external)
+   - Fill out info. Domain use: `http://localhost:3000`
+   - **Credentials** => OAuth Client Id (_1:21:59_)
+     - **Application Type** => Web Application
+     - **Authorized JavaScript Origins** => `http://localhost:3000`
+     - **Authorized Redirect URIs** => `http://localhost:3000`
+     - Select **CREATE** => (_process may take 5 mins or so_)
+     - Copy the **clientId** and **clientSecret** to our **.env** file.
+       - Then call the **.env** variables to our **route.js** file (app/api/auth/[...nextauth]/route.js)
 
 Import the **.env** file can be imported with `process.env.NAME`
 
@@ -127,31 +116,51 @@ Import the **.env** file can be imported with `process.env.NAME`
 
 ```
 
-7. Set up cloud DB At [(1:28:05)](https://youtu.be/wm5gMKuwSYk?t=5285) set up 
-[MongoDB Atlas DB](https://www.mongodb.com/atlas) at mongodb.com/atlas
+7. Set up cloud DB At [(1:28:05)](https://youtu.be/wm5gMKuwSYk?t=5285) set up
+   [MongoDB Atlas DB](https://www.mongodb.com/atlas) at mongodb.com/atlas
+
 - set up account (Degen@gmail - usual $).
 - set up (free) M0 Cluster
-    - Confirm user and password access to Cluster0
-    - In **Network** add your current IP address
-    - Click **"Add IP Address"** and select **"Anywhere"** which adds `0.0.0.0/0  (includes your current IP address)`
+  - Confirm user and password access to Cluster0
+  - In **Network** add your current IP address
+  - Click **"Add IP Address"** and select **"Anywhere"** which adds `0.0.0.0/0  (includes your current IP address)`
 - **SET UP CONNECTION**
-    - Click **Database**
-    - Click **Connect** 
-    - Click **Drivers** - (`1:29:17`)
-    - Copy your **MongoDB URI**
-    
+  - Click **Database**
+  - Click **Connect**
+  - Click **Drivers** - (`1:29:17`)
+  - Copy your **MongoDB URI**
 
+8. Check **Next Auth Docs**. [Getting Started](https://next-auth.js.org/getting-started/example)
 
+9. Add project route in **.env**. For now, use localhost:3000
 
+```js
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_URL_INTERNAL=http://localhost:3000
 
+```
 
+10. Create **Next Auth Secret** (`NEXTAUTH_SECRET=`) with the following command
+    - On Windows use, [`Cryptool.org/en/cto/openssl`](https://www.cryptool.org/en/cto/openssl)
 
+```js
+> openssl rand -base64 32
+```
 
+```cmd
+$ openssl rand -base64 32
+
+iSvXpuP8gKDfD6iU4J2AYWgTc+cLvpJOjPQKlwoQu04=
+
+```
+
+11. (1:40:07) - Add the configuration for `next.config.js` from [gist](https://github.com/adrianhajdin/project_next_13_ai_prompt_sharing/blob/main/next.config.js)
+
+![The top-level-await experiment is not enabled](https://i.imgur.com/r3Lssvq.png)
+
+## Next Auth Default ReadMe
 
 ---
----
-
-
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
