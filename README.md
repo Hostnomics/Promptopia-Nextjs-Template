@@ -160,6 +160,25 @@ iSvXpuP8gKDfD6iU4J2AYWgTc+cLvpJOjPQKlwoQu04=
 
 https://next-auth.js.org/getting-started/example
 
+12. (1:41:32): **IN NAVBAR** (_Nav.jsx_) Set to check active session instead of isUserLoggedIn (https://youtu.be/wm5gMKuwSYk?t=6092)
+
+```js
+  // const isUserLoggedIn = true;
+  const { data: session } = useSession();
+
+    {/* Desktop Navigation */}
+      <div className="sm:flex hidden">
+            {/* updated (1:41:19) with session?.user {isUserLoggedIn ? ( */}
+            {session?.user ? (
+
+```
+
+13. (1:44:30) - Google Cloud Console, click on **Credentials**
+
+- Authorized redirect URIs
+- Add `/api/auth/callback/provider` to base uri **http://localhost:3000**
+  - `http://localhost:3000/api/auth/callback/google`
+
 ---
 
 ---

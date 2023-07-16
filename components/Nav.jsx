@@ -11,8 +11,11 @@ import { signIn, signOut, useSession, getProviders} from 'next-auth/react';
 
 const Nav = () => {
 
+// (1:41:32): Set to check active session instead of isUserLoggedIn (https://youtu.be/wm5gMKuwSYk?t=6092)
+  // const isUserLoggedIn = true;
+  const { data: session } = useSession();
 
-  const isUserLoggedIn = true;
+
 //(1:07:40): Start setting up getProviders. (https://youtu.be/wm5gMKuwSYk?t=4060)
   const [providers, setProviders] = useState(null);
 
@@ -21,13 +24,13 @@ const Nav = () => {
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
   useEffect(() => {
-      const setProviders = async () => {
+      const setUpProviders = async () => {
         const response = await getProviders();
 
         setProviders(response);
       }
 
-      setProviders();
+      setUpProviders(); //(1:43:30)
   }, []);
 
   const toggleMenu = () => {
@@ -54,7 +57,8 @@ const Nav = () => {
 
   {/* Desktop Navigation */}
       <div className="sm:flex hidden">
-            {isUserLoggedIn ? (
+            {/* updated (1:41:19) with session?.user {isUserLoggedIn ? ( */}
+            {session?.user ? (
               <div className="flex gap-3 md:gap-5">
                   <Link href="/create-prompt" className="black_btn">
                     Create Post
@@ -98,7 +102,8 @@ const Nav = () => {
       <div className="sm:hidden flex relative">
            {/* { alert("testing")} */}
          
-                {isUserLoggedIn ? (
+            {/* updated (1:41:19) with session?.user {isUserLoggedIn ? ( */}
+            {session?.user ? (
                   <div className="flex">
                           <Image 
                             src="/assets/images/profile-logo-2.png"
