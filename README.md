@@ -158,6 +158,9 @@ iSvXpuP8gKDfD6iU4J2AYWgTc+cLvpJOjPQKlwoQu04=
 
 ![The top-level-await experiment is not enabled](https://i.imgur.com/r3Lssvq.png)
 
+- When testing, check your session with **`{alert(session?.user)}`** and `{alert(providers)}` in our JSX.
+-
+
 https://next-auth.js.org/getting-started/example
 
 12. (1:41:32): **IN NAVBAR** (_Nav.jsx_) Set to check active session instead of isUserLoggedIn (https://youtu.be/wm5gMKuwSYk?t=6092)
@@ -178,6 +181,10 @@ https://next-auth.js.org/getting-started/example
 - Authorized redirect URIs
 - Add `/api/auth/callback/provider` to base uri **http://localhost:3000**
   - `http://localhost:3000/api/auth/callback/google`
+
+14. (1:45:41) - Get user profile image with `session?.user.image` after sign in with google account working.
+
+- #VSCODE - if tab stops working, [use CTRL + M or CMD + M to fix](https://stackoverflow.com/questions/35519538/visual-studio-code-tab-key-does-not-insert-a-tab)
 
 ---
 

@@ -26,7 +26,7 @@ const Nav = () => {
   useEffect(() => {
       const setUpProviders = async () => {
         const response = await getProviders();
-
+        console.log("setUpProviders in useEffect's response is: ",response)
         setProviders(response);
       }
 
@@ -40,11 +40,12 @@ const Nav = () => {
 
 
   return (
+    
 
   <nav className="flex-between w-full mb-16 pt-3">
         <Link href="/" className="flex gap-2 flex-center">
           <Image 
-            src="/assets/images/logo.svg" 
+            src="/assets/images/logo.svg"    
             width={30}
             height={30}
             alt="Promptopia Logo"
@@ -70,7 +71,8 @@ const Nav = () => {
 
                   <Link href="/profile">
                       <Image 
-                        src="/assets/images/profile-logo-1.png"
+                     // src="/assets/images/profile-logo-1.png" (dynamically fetch user profile iamge ~(1:45:55)
+                        src={session?.user.image}   
                         width={37}
                         height={37}
                         alt="Profile"
@@ -82,7 +84,7 @@ const Nav = () => {
             ) : (
               <>
                     {providers && 
-                        Object.values(providers).map((providers) => (
+                        Object.values(providers).map((provider) => (
                           <button
                             type="button"
                             key={providers.name}
@@ -106,7 +108,8 @@ const Nav = () => {
             {session?.user ? (
                   <div className="flex">
                           <Image 
-                            src="/assets/images/profile-logo-2.png"
+                            // src="/assets/images/profile-logo-2.png"
+                            src={session?.user.image}
                             width={37}
                             height={37}
                             alt="Profile"
@@ -154,11 +157,13 @@ const Nav = () => {
                     </div>
                 ) : (
                   <>
+
+                  
                       {providers && 
-                          Object.values(providers).map((providers) => (
+                          Object.values(providers).map((provider) => (
                             <button
                               type="button"
-                              key={providers.name}
+                              key={provider.name}
                               onClick={() => signIn(provider.id)}
                               className="black_btn"
                             >
