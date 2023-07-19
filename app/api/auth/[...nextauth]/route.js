@@ -43,7 +43,7 @@ const handler = NextAuth({
                 //1. Check if a user already exists:
                 const userExists = await User.findOne({
                     email: profile.email
-                })
+                });
     
                 //2. If not, create a NEW user and save it to the database:
                 // (1:35:45ish)- no spaces username: profile.name.repace(" ", "").toLowerCase(),

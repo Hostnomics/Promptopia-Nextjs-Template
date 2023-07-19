@@ -186,6 +186,11 @@ https://next-auth.js.org/getting-started/example
 
 - #VSCODE - if tab stops working, [use CTRL + M or CMD + M to fix](https://stackoverflow.com/questions/35519538/visual-studio-code-tab-key-does-not-insert-a-tab)
 
+15. (1:47:50)[] - In **route.js** add the `callbacks` to connect with our **MongoDB**
+    https://youtu.be/wm5gMKuwSYk?t=6470
+
+-
+
 ---
 
 ---
