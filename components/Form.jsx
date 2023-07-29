@@ -23,7 +23,7 @@ const Form = ({  type, post, setPost, submitting, handleSubmit }) => {
   {/* <br></br> */}
                   <textarea 
                     value={post.prompt}
-                    onChange={(e) => setPost({ ...post, prompt: e.target.value })}
+                    onChange={(e) => setPost({ ...post, prompt: e.target.value })}  //const [post, setPost] = useState({prompt: '', tag: ''   });
                     placeholder="Write your prompt here..."
                     required
                     className="form_textarea "
@@ -58,7 +58,7 @@ const Form = ({  type, post, setPost, submitting, handleSubmit }) => {
                         disabled={submitting}
                         className='px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white'
                       >
-                        {submitting ? `${type}ing...` : type}
+                        {submitting ? `${type}...` : type}
                       </button>
               </div>
       </form>

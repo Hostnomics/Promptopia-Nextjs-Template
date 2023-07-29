@@ -192,6 +192,24 @@ https://next-auth.js.org/getting-started/example
 16. Create Prompt Page [(1:50:20)](https://youtu.be/wm5gMKuwSYk?t=6620)
 
 - x
+- (2:04:04) - Create our own backend route to store prompt posts
+  - In `app/create-prompt/page.jsx` we create the post route
+
+```js
+const response = await fetch("/api/prompt/new", {
+  method: "POST",
+  body: JSON.stringify({
+    prompt: post.prompt,
+    userId: session?.user.id,
+    tag: post.tag,
+  }),
+});
+```
+
+- (16 A) Then create `/api/prompt/new` directory folders and add **route.js** file in the `new` directory
+
+- (16 B) [(2:06:16)](https://youtu.be/wm5gMKuwSYk?t=7576) - Create the **MODEL FOR SAVING OUR PROMPT**
+  - Add **prompt.js** file in our **Models** directory.
 
 ---
 

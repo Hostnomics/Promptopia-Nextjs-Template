@@ -15,8 +15,32 @@ const CreatePrompt = () => {
   const [post, setPost] = useState({prompt: '', tag: ''   });
     
 
+  //Build out createPrompt function at (2:01:26): https://youtu.be/wm5gMKuwSYk?t=7286
   const createPrompt = async (e) => {
     e.preventDefault();
+    // set setSubmitting to true so we can use that as a loader later on
+    setSubmitting(true);
+
+    // (2:02:04) - create our first prompt to our API route and pass the options object
+    try {
+      const response = await fetch('/api/prompt/new', {
+        method: 'POST',
+        body: JSON.stringify({
+          prompt: post.prompt,
+          userId: session?.user.id,
+          tag: post.tag
+        })
+      })
+
+      if(response.ok) {
+        router.push('/');
+      }
+
+    } catch (error){
+        console.log(error);
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
