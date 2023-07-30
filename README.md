@@ -209,7 +209,25 @@ const response = await fetch("/api/prompt/new", {
 - (16 A) Then create `/api/prompt/new` directory folders and add **route.js** file in the `new` directory
 
 - (16 B) [(2:06:16)](https://youtu.be/wm5gMKuwSYk?t=7576) - Create the **MODEL FOR SAVING OUR PROMPT**
+
   - Add **prompt.js** file in our **Models** directory.
+  - Then at `(2:08:30)` we import our `@models/prompt` model into `api/prompt/new/route.js` file
+  -
+
+  _first test prompt_
+
+  _"You are a professional web developer. I'm going to provide you with a snippet of code, and you can give me advice on how to make it cleaner, more readable and more efficient."_
+
+- (16 C) - `(2:12:30)` - Address error **ReferenceError: session is not defined**
+
+  `ReferenceError: session is not defined at createPrompt (webpack-internal:///(app-client)/./app/create-prompt/page.jsx:38:41)`
+
+  - We have not imported our session
+    - `userId: session?.user.id,`
+    - So import with:
+      - x
+    - Import useRouter like we did with useNavigate
+      - `const router = useRouter()`
 
 ---
 

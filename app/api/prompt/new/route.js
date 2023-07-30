@@ -4,7 +4,8 @@
 // (2:05:45) - Connect to our DB (Here with our utility function connectToDB )
 import { connectToDB } from '@utils/database';
 
-
+// (2:08:33) import our prompt model we just created
+import Prompt from '@models/prompt';
 
 
 
@@ -17,8 +18,18 @@ import { connectToDB } from '@utils/database';
 
       try {
         await connectToDB(); // [(2:06:16)](https://youtu.be/wm5gMKuwSYk?t=7576) - Create the **MODEL FOR SAVING OUR PROMPT** 
+        const newPrompt = new Prompt({
+          creator: userId,
+          prompt,
+          tag
+        })
+        await newPrompt.save();
+
+        return new Response(JSON.stringify(newPrompt), { status: 201 })
+
       } catch (error) {
         console.log(error)
+        return new Response("Failed to create a new prompt", { status: 500 })
       }
 
 }

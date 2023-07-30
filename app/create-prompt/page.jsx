@@ -9,6 +9,11 @@ import Form from '@components/Form';
 
 
 const CreatePrompt = () => {
+
+// At (2:12:51) - define useRouter variable like we did with const navigate = useNavigate()
+  const router = useRouter(); 
+// Get the session with: 
+  const { data: session } = useSession();  //need to define session for our post method in createPrompt fn 'userId: session?.user.id,'
   
 //(1:51:29) - set up state of form to pass to form component
   const [submitting, setSubmitting] = useState(false) //Are we currently submitting the form (~1:51:30)
