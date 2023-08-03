@@ -1,3 +1,7 @@
+## Cloud.MongoDB.com/atlas Setup
+
+**See [(1:28:05)](https://youtu.be/wm5gMKuwSYk?t=5285) for the MongoDB Setup**
+
 - app folder components are server side rendering (19:29)
 
   - client side component with `use client`
