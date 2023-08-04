@@ -1,3 +1,5 @@
+//Built out at (1:31:20): https://youtu.be/wm5gMKuwSYk?t=5480
+
 import { Schema, model, models } from 'mongoose';
 
 const UserSchema = new Schema({

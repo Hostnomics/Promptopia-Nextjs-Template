@@ -7,7 +7,7 @@ export const metadata = {
     title: "Promptopia",
     description: "Discover & Share AI Prompts"
 }
-
+ 
 
 //(52:51) - Getting children through props: 
 const RootLayout = ({children}) => {
@@ -15,16 +15,17 @@ const RootLayout = ({children}) => {
 
         <html lang="en">
             <body>
-                <Provider>
-                    <div className="main">
-                        <div className="gradient" />
-                    </div>
+                {/* (1:17:11) wrap everything within our body with our Provider component (just came from utils/database.js) */}
+                    <Provider>
+                        <div className="main">
+                            <div className="gradient" />
+                        </div>
 
-                    <main className="app">
-                        <Nav />
-                            {children}
-                    </main>
-                </Provider>
+                        <main className="app">
+                            <Nav />
+                                {children}
+                        </main>
+                    </Provider>
             </body>
         </html>
 

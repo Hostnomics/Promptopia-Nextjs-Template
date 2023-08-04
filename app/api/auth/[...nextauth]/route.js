@@ -1,7 +1,8 @@
+//Built out at 1:18:20: https://youtu.be/wm5gMKuwSYk?t=4700
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 
-import User from '@models/user';
+import User from '@models/user'; // Imported from models/user.js at (1:34:51)
 import { connectToDB } from '@utils/database';
 
 const handler = NextAuth({
@@ -23,7 +24,7 @@ const handler = NextAuth({
       try {
         await connectToDB();
 
-        // check if user already exists
+        // check if user already exists (at 1:35:00)
         const userExists = await User.findOne({ email: profile.email });
 
         // if not, create a new document and save user in MongoDB

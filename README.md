@@ -83,16 +83,23 @@ In **jsconfig.json** remove the `/` from `paths`:
 
 ```
 
-## Setting up the Provier
+## Setting up the Provier and Authentication
 
 4. Build out Provider.jsx [(1:15:59)](https://youtu.be/wm5gMKuwSYk?t=4559)
 
-5. Wrap the layout in <Provider></Provider> tags just inside the body tags in `app/layout.jsx`
+5. Wrap the layout in <Provider></Provider> tags just inside the body tags in `app/layout.jsx` (`~1:17:00-ish`)
 
-   - Layout.jsx imports Provider from `import Provider from '@components/Provider'`
+  - Layout.jsx imports Provider from `import Provider from '@components/Provider'`
+  - Set up **api** routes in the `app/api/` directory (`1:17:46`)
+    - Create **auth** directory in **api** directory (`app/api/auth`)
+      - Create "_Dynamic NextAuth_" **[...nextauth]** folder in **auth** directory (`app/api/auth/[...nextauth]`)
+        - Finally, create **route.js** in our **[...nextauth]** directory (`app/api/auth/[...nextauth]/route.js`)
+        
+
+
+
 
 6. (1:18:30) - set up `app/api/auth/[...nextauth]/route.js`
-
    - gotto https://console.cloud.google.com/
    - create new project, name and create.
    - API and Services => OAuth consent screen
