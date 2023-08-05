@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 
 import PromptCard from './PromptCard';
 
-
+ 
 // (2:17:33) - the PromptCardList component is only used in this Feed.jsx component so we can create it here: 
   const PromptCardList = ({ data, handleTagClick }) => {
     return (
@@ -13,7 +13,7 @@ import PromptCard from './PromptCard';
         {/* Map over the data and view the prompts (2:18:13 => 2:19:57) */}
           {data.map((post) => (
             <PromptCard 
-                key={post.id}
+                key={post._id}
                 post={post}
                 handleTagClick={handleTagClick}
             />
@@ -34,6 +34,7 @@ const Feed = () => {
 const [posts, setPosts] = useState([]);
 
 useEffect(() => {
+  // Built out at (2:18:45): https://youtu.be/wm5gMKuwSYk?t=8325
     const fetchPosts = async () => {
       const response = await fetch('/api/prompt');
       const data = await response.json();
@@ -41,7 +42,7 @@ useEffect(() => {
       setPosts(data);
     }
 
-    fetchPosts();
+    fetchPosts(); //call fetchPosts method right here in the useEffect to trigger on page load
 }, []);
 
   return (
@@ -62,7 +63,7 @@ useEffect(() => {
     // Set data to an empty array and handleTagClick to an empty callback function
       // data={[]}
       // handleTagClick={() => {}}
-      data={posts}
+      data={posts} // (2:19:40)
       handleTagClick={() => {}}
 
     />

@@ -85,4 +85,66 @@
 # TEST OUT AUTHENTICATION WITH GOOGLE => MONGODB [(1:39:16)](https://youtu.be/wm5gMKuwSYk?t=5956)
 -    
     - Kill current local server. Restart local server (`npm run dev`)
+    - Update the Next config file with the [next.config.js from the project repository](https://github.com/adrianhajdin/project_next_13_ai_prompt_sharing/blob/main/next.config.js)
     - 
+
+    - Run local server, attempt to log in (1:40:35): https://youtu.be/wm5gMKuwSYk?t=6035
+    - At [(1:40:59)](https://youtu.be/wm5gMKuwSYk?t=6059) go to `components/Nav.jsx` and change **const isUserLoggedIn = true** to check for a user session `{session?user ? ():()}`
+        - Via Next Auth Hook (**useSession**) we can set `isUserLoggedIn` to current session.
+
+        ```js
+        // Rename useSession to session
+        const {data: session } = useSession()
+
+        // Test session in JSX with {alert(session?.user)}
+
+        {session?.user ? ( 
+            //code if user session
+        ) : (
+            //else code
+        )}
+        ```
+
+    - Check his **useEffect() in Nav.jsx** at [(1:43:12)](https://youtu.be/wm5gMKuwSYk?t=6192)
+
+
+## NextAuth.js APi Call to Providers at [(1:44:02)](https://youtu.be/wm5gMKuwSYk?t=6242)
+- 
+    - See the [Next Auth Docs on API calls To Providers](https://next-auth.js.org/getting-started/rest-api#getpost-apiauthcallbackprovider)
+
+    - Go back to [console.cloud.google.com](https://console.cloud.google.com/) and add provider to the **Callback in Google Cloud Console**.
+
+    - In **APIs & Services** => **Credentials** => **OAuth 2.0 Client IDs**
+        - Click on (_our default name?_) `Web Client 1`.
+        - Click **ADD URI** and add `/api/auth/callback/google` with the named provider to base URL of localhost:3000. 
+
+        - ![https://i.imgur.com/rtSDgz2.png](https://i.imgur.com/rtSDgz2.png)
+
+
+## Set up Feed.jsx and PromptCard.jsx to fetch and display Prompts [(2:13:40)](https://youtu.be/wm5gMKuwSYk?t=8020)
+-  
+    - Build out **GET Request** in Feed.jsx Component at [(2:13:49)](https://youtu.be/wm5gMKuwSYk?t=8029)
+    - 
+    ```js
+        import PromptCard from './PromptCard';
+
+        <div className="mt-16 prompt_layout">
+            {/* Map over the data and view the prompts (2:18:13 => 2:19:57) */}
+            {data.map((post) => (
+                <PromptCard 
+                    key={post.id}
+                    post={post}
+                    handleTagClick={handleTagClick}
+                />
+            ))}
+      </div>
+    ```
+    - 
+
+    - Build out the `fetch('api/prompt')` route we created in the Feed.jsx component at: 
+        - `app/api/prompt/route.js`  (2:20:38)
+    
+    - **PromptCard.jsx** Build out at [(2:22:14)](https://youtu.be/wm5gMKuwSYk?t=8534)
+        - Display the prompt we fetch from the MongoDB Cluster in PromptCard.jsx component.
+        - 
+

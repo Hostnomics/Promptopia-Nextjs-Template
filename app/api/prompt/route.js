@@ -1,5 +1,5 @@
-// route api/prompt created at (2:21:00) - https://youtu.be/wm5gMKuwSYk?t=8460
-
+// Built out (2:20:38): https://youtu.be/wm5gMKuwSYk?t=8438
+// Built to match fetch route api/prompt
 import { connectToDB } from '@utils/database';
 
 import Prompt from '@models/prompt';
@@ -21,3 +21,4 @@ export const GET = async (request) => {
     
   }
 }
+
