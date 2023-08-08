@@ -242,6 +242,16 @@ const response = await fetch("/api/prompt/new", {
 
 ---
 
+
+
+## Add Profile (2:31:54)
+- 
+  - Create route by adding `profile directory in app`
+
+
+
+
+---
 ## Next Auth Default ReadMe
 
 ---
