@@ -36,7 +36,8 @@ const [posts, setPosts] = useState([]);
 useEffect(() => {
   // Built out at (2:18:45): https://youtu.be/wm5gMKuwSYk?t=8325
     const fetchPosts = async () => {
-      const response = await fetch('/api/prompt');
+//At 2:36:03 - made fetch route a dynamic template string so we only get posts for currently logged in user.
+      const response = await fetch(`/api/prompt/${session?.user.id}/posts`);
       const data = await response.json();
 
       setPosts(data);
