@@ -1,3 +1,5 @@
+//Built out at 2:39:05: https://youtu.be/wm5gMKuwSYk?t=9545
+
 import PromptCard from "./PromptCard";
 
 const Profile = ({ name, desc, data, handleEdit, handleDelete }) => {
@@ -9,6 +11,8 @@ const Profile = ({ name, desc, data, handleEdit, handleDelete }) => {
       <p className='desc text-left'>{desc}</p>
 
       <div className='mt-10 prompt_layout'>
+{/* Bring in the mapping from components/Feed.jsx function PromptCardList (2:43:17): */}
+{/* Check if handleEdit/handleDelete exist, then (&&) if so, call the function and pass it the post: */}
         {data.map((post) => (
           <PromptCard
             key={post._id}

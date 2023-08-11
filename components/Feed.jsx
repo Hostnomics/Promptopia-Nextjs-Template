@@ -5,6 +5,9 @@ import { useState, useEffect } from 'react'
 
 import PromptCard from './PromptCard';
 
+//YOLO testing out error: 
+import { useSession } from "next-auth/react";
+
  
 // (2:17:33) - the PromptCardList component is only used in this Feed.jsx component so we can create it here: 
   const PromptCardList = ({ data, handleTagClick }) => {
@@ -32,6 +35,9 @@ const Feed = () => {
 
 // Make useEffect to make a get request to our own API so we can map over them in PromptCardList (2:18:26)
 const [posts, setPosts] = useState([]);
+
+//YOLO - Testing out error on session
+const { data: session } = useSession();
 
 useEffect(() => {
   // Built out at (2:18:45): https://youtu.be/wm5gMKuwSYk?t=8325

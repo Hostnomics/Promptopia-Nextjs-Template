@@ -248,7 +248,11 @@ const response = await fetch("/api/prompt/new", {
 - 
   - Create route by adding `profile directory in app`
 
+  - Create route `app/api/users/[id]/posts/route.js` at `(2:37:13)` **missing**
+    - Create dynamic route in users with **[id]**
 
+  - Build out **component** Profile page at [(2:39:05)](https://youtu.be/wm5gMKuwSYk?t=9545)
+  
 
 
 ---
