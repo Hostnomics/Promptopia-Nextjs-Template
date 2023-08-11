@@ -5,8 +5,9 @@ import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import Profile from "@components/Profile";
+import Profile from "@components/Profile"; //2:33:15 (also have Profile Component)
 
+//Rename to MyProfile so it doesn't conflict with Component Profile
 const MyProfile = () => {
   const router = useRouter();
   const { data: session } = useSession();
@@ -21,7 +22,7 @@ const MyProfile = () => {
       setMyPosts(data);
     };
 
-    if (session?.user.id) fetchPosts();
+    if (session?.user.id) fetchPosts(); //(2:36:50) - only fetchPosts if we have user id
   }, [session?.user.id]);
 
   const handleEdit = (post) => {
@@ -49,9 +50,10 @@ const MyProfile = () => {
   };
 
   return (
+    // Profile Component Tag added (2:33:28)
     <Profile
       name='My'
-      desc='Welcome to your personalized profile page. Share your exceptional prompts and inspire others with the power of your imagination'
+      desc='Welcome to your personalized profile page.'
       data={myPosts}
       handleEdit={handleEdit}
       handleDelete={handleDelete}
