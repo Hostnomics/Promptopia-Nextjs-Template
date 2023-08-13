@@ -252,7 +252,21 @@ const response = await fetch("/api/prompt/new", {
     - Create dynamic route in users with **[id]**
 
   - Build out **component** Profile page at [(2:39:05)](https://youtu.be/wm5gMKuwSYk?t=9545)
-  
+
+
+
+## Edit User [(`2:45:04`)](https://youtu.be/wm5gMKuwSYk?t=9904)
+
+- The Profile component is using the PromptCard component. 
+  - In `components/Profile.jsx`. 
+    - Add to `components/PromptCard.jsx`
+
+  - In the **Profile Page** (`app/profile/page.jsx`) add the `handleEdit` and `handleDelete` functions for profile post management. [(2:48:25)](https://youtu.be/wm5gMKuwSYk?t=10105)
+
+  - Add the route accepting dynamic post id value with directory named **[id]** in `app/api/prompt/[id]/route.js` at (2:48:43)
+  - Set up GET (to load edit form), PATCH and DELETE routes in `app/api/prompt/[id]/route.js`.
+    - use **findByID()** and **.findByIdAndRemove()** functions. 
+    - 
 
 
 ---

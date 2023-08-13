@@ -25,6 +25,8 @@ const MyProfile = () => {
     if (session?.user.id) fetchPosts(); //(2:36:50) - only fetchPosts if we have user id
   }, [session?.user.id]);
 
+
+// Add the Edit and Delete functions at (2:48:10): https://youtu.be/wm5gMKuwSYk?t=10090
   const handleEdit = (post) => {
     router.push(`/update-prompt?id=${post._id}`);
   };

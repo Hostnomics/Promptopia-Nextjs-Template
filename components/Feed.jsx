@@ -17,7 +17,7 @@ import { useSession } from "next-auth/react";
           {data.map((post) => (
             <PromptCard 
                 key={post._id}
-                post={post}
+                post={post} 
                 handleTagClick={handleTagClick}
             />
           ))}
@@ -61,6 +61,7 @@ useEffect(() => {
           value={searchText}
           // onChange={e => setSearchText(e.target.value)}
           onChange={handleSearchChange}
+          required
           className="search_input peer"
         />
       </form>

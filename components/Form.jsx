@@ -1,3 +1,5 @@
+//Built out and Params from app/create-prompt/page.jsx added (1:53:06):
+
 import Link from 'next/link';
 
 const Form = ({  type, post, setPost, submitting, handleSubmit }) => {
@@ -26,7 +28,7 @@ const Form = ({  type, post, setPost, submitting, handleSubmit }) => {
                     onChange={(e) => setPost({ ...post, prompt: e.target.value })}  //const [post, setPost] = useState({prompt: '', tag: ''   });
                     placeholder="Write your prompt here..."
                     required
-                    className="form_textarea "
+                    className="form_textarea"
                     
                   />
               </label>
