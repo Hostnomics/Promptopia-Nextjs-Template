@@ -255,7 +255,7 @@ const response = await fetch("/api/prompt/new", {
 
 
 
-## Edit User [(`2:45:04`)](https://youtu.be/wm5gMKuwSYk?t=9904)
+## Edit User ROUTE [(`2:45:04`)](https://youtu.be/wm5gMKuwSYk?t=9904)
 
 - The Profile component is using the PromptCard component. 
   - In `components/Profile.jsx`. 
@@ -268,6 +268,19 @@ const response = await fetch("/api/prompt/new", {
     - use **findByID()** and **.findByIdAndRemove()** functions. 
     - 
 
+  - Add page and directory for `update-prompt?id=${post._id}` by adding directory off of **app**
+    - Add `app/update-prompt/[id]`
+
+    - Add Update Post Form by reusing **Create Post** Form component at `(2:56:28)` https://youtu.be/wm5gMKuwSYk?t=10588
+      - 
+
+## Edit User Page (app/update-prompt) [(2:56:28)](https://youtu.be/wm5gMKuwSYk?t=10588)
+  - Build the **Edit** prompt page in `app/update-prompt/page.jsx`
+  - Use **useSearchParams** to get the post id from the request route. 
+  - Call the GET end point we created in `app/api/prompt/[id]/route.js` 
+  - Prompt loads successfully in the Edit Page via the GET endpoint using the prompt id from useSearchParams [(3:00:30)](https://youtu.be/wm5gMKuwSYk?t=10830)
+
+- 
 
 ---
 ## Next Auth Default ReadMe

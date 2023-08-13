@@ -9,8 +9,11 @@ import Profile from "@components/Profile"; //2:33:15 (also have Profile Componen
 
 //Rename to MyProfile so it doesn't conflict with Component Profile
 const MyProfile = () => {
-  const router = useRouter();
+
   const { data: session } = useSession();
+
+//router added (2:55:17)
+  const router = useRouter();
 
   const [myPosts, setMyPosts] = useState([]);
 
@@ -28,6 +31,7 @@ const MyProfile = () => {
 
 // Add the Edit and Delete functions at (2:48:10): https://youtu.be/wm5gMKuwSYk?t=10090
   const handleEdit = (post) => {
+    //set up (2:55:31)
     router.push(`/update-prompt?id=${post._id}`);
   };
 

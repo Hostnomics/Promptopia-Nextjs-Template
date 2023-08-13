@@ -18,6 +18,7 @@ import Prompt from '@models/prompt';
 
       try {
         await connectToDB(); // [(2:06:16)](https://youtu.be/wm5gMKuwSYk?t=7576) - Create the **MODEL FOR SAVING OUR PROMPT** 
+//Come back after completed prompt model 'models/prompt.js':        
         const newPrompt = new Prompt({
           creator: userId,
           prompt,

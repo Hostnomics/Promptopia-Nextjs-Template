@@ -14,7 +14,7 @@
 
             // find specific prompt with findById(params.id)
                     // filter out our prompts ==> find({}) all posts and populate the creator as well to know who created it (2:21:38)
-            const prompts = await Prompt.findById(params.id).populate('creator');
+            const prompt = await Prompt.findById(params.id).populate('creator');
 
             // IF prompt id does not exist: 
             if(!prompt) return new Response("Prompt not found  for GET to load EDIT page from app/api/prompt/[id]/route.js", { status: 404 });
